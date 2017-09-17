@@ -21,18 +21,21 @@
 
  @mixin background-tile {
  	box-sizing: border-box;
- 	background-color: #fff;
+  background-color: #F1ECE0;
+  border: #42250C solid 2px;
  	border-radius: 5px;
- 	box-shadow: 3px 3px 5px 6px #ccc;
- 	padding: 1.5em 1.25em;
+ // 	box-shadow: 3px 3px 5px 6px #1C0F02;
+ 	padding: 1em 1.25em;
+
  }
 
  @mixin background-tile-1 {
   box-sizing: border-box;
-  background-color: #1C0F02;
-  border-radius: 0.5px;
-  box-shadow: 3px 3px 5px 6px #F1ECE0;
+  background-color: #F1ECE0;
+  border: #786C6C;
+  border-radius: 5px;
   padding: 0.5em 0.25em;
+
  }
 
  /* General styles */
@@ -63,7 +66,7 @@
  }
  .navbar-default {
  	background-color: #F1ECE0;
-  border-color: #786C6C;
+  border-color: #42250C;
  	padding-bottom: 5px;
  	padding-top: 5px;
 
@@ -160,6 +163,10 @@
  	width: 220px;
  	margin-bottom: 40px;
  	@include background-tile-1;
+  transition: 1s;
+  &:hover {
+    transform: scale(1.1) rotate(1deg);
+  }
  }
 
 

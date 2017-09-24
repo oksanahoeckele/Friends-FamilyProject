@@ -20,6 +20,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.3'
 gem 'paperclip', '~> 5.1'
 gem 'uglifier', '>= 1.3.0'
+gem 'omniauth-facebook', '~> 4.0.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -28,6 +29,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'httparty'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -43,7 +45,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
-
+gem 'dotenv-rails'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -55,3 +57,23 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# steps for heroku
+# 1. git add commit all your code
+ # 1.5 confirm your app works on localhost
+# 2. heroku create
+# 3. make sure you have a homepage
+# 4. make sure you've migrated your database
+  # fixes (500 error)
+  # heroku run rails db:migrate
+# 5. use 'pg' in production
+ # group :development do
+ #  gem 'sqlite3'
+ # end
+ # gem 'pg'
+
+ # group :production do
+ # gem 'pg'
+ # gem 'rails_12factor'
+ # end
+# 6.

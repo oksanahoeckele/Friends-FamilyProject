@@ -28,7 +28,7 @@ end
 
   def create
     @book = current_user.books.build(book_params)
-    @book.category_id = params[:category_id]
+    # @book.category_id = params[:category_id]
 
     if @book.save
       redirect_to root_path
@@ -38,7 +38,7 @@ end
   end
 
   def edit
-    @categories = Category.all.map{ |c| [c.name, c.id]}
+    # @categories = Category.all.map{ |c| [c.name, c.id]}
   end
 
   def update
@@ -57,7 +57,7 @@ end
 
   private
   def book_params
-    params.require(:book).permit(:title, :description, :author, :category_id, :book_img)
+    params.require(:book).permit(:title)
   end
 
   def find_book

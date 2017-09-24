@@ -14,16 +14,19 @@
     <div class="container">
 
       <div class="navbar-header">
-        <%= link_to "Book Review", root_path, class: "navbar-brand" %>
+        <%= link_to "Bookshelf", root_path, class: "navbar-brand" %>
       </div>
 
       <ul class="nav navbar-nav">
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <% if user_signed_in? %>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to "Log In", new_user_session_path %></li>
-        <% end %>
+
+        <div id="facebook-login-btb">
+          <% if current_user %>
+          Signed in as <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, method: 'delete', id: "sign_out" %>
+          <% else %>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: 'get', id: "sign_in" %>
+          <% end %>
+        </div>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -54,6 +57,8 @@
   <div class="container">
     <%= yield %>
   </div>
+
+  <%= hidden_field_tag :facebook_app_id, ENV["FACEBOOK_APP_ID"] %>
 
 </body>
 </html>
